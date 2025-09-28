@@ -16,6 +16,10 @@
     "paths": {
       "@/*": ["./*"]
     },
+    "types": [
+      "tailwindcss/types",
+      "node"
+    ],
     "plugins": [
       {
         "name": "next"
