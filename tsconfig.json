@@ -23,7 +23,6 @@
       ]
     },
     "types": [
-      "tailwindcss/tailwind-css"
     ],
     "plugins": [
       {
