@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { 
   Menu, 
@@ -286,7 +287,7 @@ const AboutSection: React.FC = () => {
                 Founded in 1987 by Chef Marina Rodriguez, Harbor Grill began as a small family restaurant with a simple mission: to serve the freshest seafood and finest steaks in an atmosphere that feels like home.
               </p>
               <p>
-                What started as a 20-seat establishment has grown into one of the city's most beloved dining destinations, but we've never forgotten our roots. Every dish is still prepared with the same passion and attention to detail that Marina brought to her first kitchen.
+                What started as a 20-seat establishment has grown into one of the city’s most beloved dining destinations, but we’ve never forgotten our roots. Every dish is still prepared with the same passion and attention to detail that Marina brought to her first kitchen.
               </p>
               <p>
                 Today, under the guidance of her daughter Sofia, Harbor Grill continues to evolve while honoring the traditions that made us who we are. We source our seafood daily from local fishermen and age our steaks to perfection, ensuring every meal is an unforgettable experience.
@@ -308,18 +309,21 @@ const AboutSection: React.FC = () => {
             </div>
           </motion.div>
           
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80"
-              alt="Harbor Grill Restaurant Interior"
-              className="rounded-lg shadow-2xl"
-            />
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80"
+                alt="Harbor Grill Restaurant Interior"
+                width={1000}
+                height={667}
+                className="rounded-lg shadow-2xl"
+                priority
+              />
             <div className="absolute -bottom-6 -left-6 bg-red-600 text-cream p-6 rounded-lg shadow-xl">
               <div className="flex items-center space-x-2 mb-2">
                 <Star className="h-5 w-5" />
