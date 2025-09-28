@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variables for theme colors (used by Tailwind via tailwind.config.ts) */
+:root {
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --cream: #fef7ed;
+  --charcoal: #374151;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--cream);
+}
