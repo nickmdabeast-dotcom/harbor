@@ -35,7 +35,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, className = 
   <motion.a
     href={href}
     onClick={onClick}
-    className={cn("text-cream hover:text-red-600 transition-colors duration-200 font-medium", className)}
+    className={cn("text-black hover:text-red-600 transition-colors duration-200 font-medium", className)}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Utensils className="h-8 w-8 text-red-600" />
-            <span className="text-2xl font-bold text-cream">Harbor Grill</span>
+            <span className="text-2xl font-bold text-black">Harbor Grill</span>
           </motion.div>
 
           <nav className="hidden md:flex items-center space-x-8 bg-charcoal/30 backdrop-blur-md rounded-2xl px-6 py-3 border border-cream/20">
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
           </div>
 
           <button
-            className="md:hidden text-cream"
+            className="md:hidden text-black"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -244,24 +244,31 @@ const MenuSection: React.FC = () => {
 
           {Object.entries(menuItems).map(([category, items]) => (
             <TabsContent key={category} value={category}>
-              <div className="grid gap-6">
-                {items.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex justify-between items-start p-6 bg-white rounded-lg shadow-sm border border-charcoal/10"
-                  >
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-charcoal mb-2">{item.name}</h3>
-                      <p className="text-charcoal/70">{item.description}</p>
-                    </div>
-                    <span className="text-xl font-bold text-red-600 ml-4">{item.price}</span>
-                  </motion.div>
-                ))}
-              </div>
+              <LiquidGlassCard
+                blurIntensity="xl"
+                shadowIntensity="lg"
+                borderRadius="36px"
+                className="p-1 bg-charcoal/40 border border-cream/20"
+              >
+                <div className="grid gap-6 p-6">
+                  {items.map((item, index) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex justify-between items-start p-6 rounded-2xl border border-cream/20 bg-white/5 backdrop-blur-sm"
+                    >
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-cream mb-2">{item.name}</h3>
+                        <p className="text-cream/80">{item.description}</p>
+                      </div>
+                      <span className="text-xl font-bold text-red-400 ml-4">{item.price}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </LiquidGlassCard>
             </TabsContent>
           ))}
         </Tabs>
