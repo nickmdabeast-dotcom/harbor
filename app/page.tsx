@@ -248,9 +248,10 @@ const MenuSection: React.FC = () => {
                 blurIntensity="xl"
                 shadowIntensity="lg"
                 borderRadius="36px"
-                className="p-1 bg-charcoal/40 border border-cream/20"
+                className="relative overflow-hidden border-white/50 bg-white/30 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.8)]"
               >
-                <div className="grid gap-6 p-6">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/60 via-white/20 to-transparent" />
+                <div className="relative grid gap-6 p-8">
                   {items.map((item, index) => (
                     <motion.div
                       key={item.name}
@@ -258,13 +259,13 @@ const MenuSection: React.FC = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex justify-between items-start p-6 rounded-2xl border border-cream/20 bg-white/5 backdrop-blur-sm"
+                      className="flex justify-between items-start rounded-3xl border border-white/60 bg-white/70 p-6 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.8)] backdrop-blur-xl"
                     >
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-cream mb-2">{item.name}</h3>
-                        <p className="text-cream/80">{item.description}</p>
+                        <h3 className="text-xl font-semibold text-charcoal mb-2">{item.name}</h3>
+                        <p className="text-charcoal/70">{item.description}</p>
                       </div>
-                      <span className="text-xl font-bold text-red-400 ml-4">{item.price}</span>
+                      <span className="text-xl font-bold text-red-600 ml-4">{item.price}</span>
                     </motion.div>
                   ))}
                 </div>
